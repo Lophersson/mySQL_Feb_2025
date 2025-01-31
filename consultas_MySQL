@@ -21,3 +21,12 @@ JOIN CountryLanguage ON Country.Code = CountryLanguage.CountryCode
 WHERE CountryLanguage.IsOfficial = 'T'
 ORDER BY Country.Name;
 ---
+SELECT Country.Name AS pais, CountryLanguage.Language AS idioma, 
+       CASE 
+           WHEN CountryLanguage.IsOfficial = 'T' THEN 'Sí' 
+           ELSE 'No' 
+       END AS es_oficial
+FROM Country
+JOIN CountryLanguage ON Country.Code = CountryLanguage.CountryCode
+ORDER BY Country.Name, CountryLanguage.Language;
+---
