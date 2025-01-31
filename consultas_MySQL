@@ -15,3 +15,9 @@ FROM Country
 LEFT JOIN City ON Country.Code = City.CountryCode
 ORDER BY Country.Name, City.Name;
 ---
+SELECT Country.Name AS pais, CountryLanguage.Language AS idioma
+FROM Country
+JOIN CountryLanguage ON Country.Code = CountryLanguage.CountryCode
+WHERE CountryLanguage.IsOfficial = 'T'
+ORDER BY Country.Name;
+---
