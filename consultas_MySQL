@@ -30,3 +30,9 @@ FROM Country
 JOIN CountryLanguage ON Country.Code = CountryLanguage.CountryCode
 ORDER BY Country.Name, CountryLanguage.Language;
 ---
+SELECT City.Name AS ciudad, CountryLanguage.Language AS idioma
+FROM City
+JOIN Country ON City.CountryCode = Country.Code
+JOIN CountryLanguage ON Country.Code = CountryLanguage.CountryCode
+ORDER BY City.Name, CountryLanguage.Language;
+---
