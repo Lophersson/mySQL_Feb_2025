@@ -6,3 +6,12 @@ SELECT City.Name AS ciudad, Country.Continent AS continente
 FROM City
 JOIN Country ON City.CountryCode = Country.Code;
 ---
+SELECT City.Name AS ciudad, Country.Continent AS continente
+FROM City
+LEFT JOIN Country ON City.CountryCode = Country.Code;
+---
+SELECT Country.Name AS pais, City.Name AS ciudad
+FROM Country
+LEFT JOIN City ON Country.Code = City.CountryCode
+ORDER BY Country.Name, City.Name;
+---
