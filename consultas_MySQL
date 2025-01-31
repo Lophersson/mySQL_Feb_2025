@@ -1,0 +1,8 @@
+SELECT Code, Name, Population
+FROM country
+WHERE Population < 1000000;
+---
+SELECT City.Name AS ciudad, Country.Continent AS continente
+FROM City
+JOIN Country ON City.CountryCode = Country.Code;
+---
