@@ -22,4 +22,16 @@ GROUP BY
 ORDER BY 
     numero_ciudades DESC;
 ---
+SELECT 
+    country.Name AS país,
+    FORMAT(ROUND(AVG(city.Population)), 0) AS población_media_ciudades
+FROM 
+    country
+LEFT JOIN 
+    city ON country.Code = city.CountryCode
+GROUP BY 
+    country.Name
+ORDER BY 
+    AVG(city.Population) DESC;
+---
   
