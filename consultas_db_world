@@ -140,3 +140,32 @@ LEFT JOIN
 WHERE
 	countrylanguage.IsOfficial = 'T'
 ---
+SELECT 
+    country.Name AS País,
+    city.Name AS Ciudad,
+    city.Population AS Población
+FROM 
+    city
+JOIN 
+    country ON city.CountryCode = country.Code
+WHERE 
+    city.Population = (
+        SELECT MAX(city.Population)
+        FROM city
+        WHERE city.CountryCode = country.Code
+    )
+ORDER BY 
+    country.Name;
+---
+SELECT 
+    city.Name AS Ciudad,
+    country.Name AS País,
+    city.Population AS Población
+FROM 
+    city
+JOIN 
+    country ON city.CountryCode = country.Code
+ORDER BY 
+    city.Population DESC
+LIMIT 1;
+---
