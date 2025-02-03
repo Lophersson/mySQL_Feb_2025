@@ -116,3 +116,14 @@ WHERE
 ORDER BY 
     city.Name;
 ---
+SELECT 
+    country.Name AS País,
+    country.Continent AS Continente
+FROM 
+    country
+WHERE 
+    LEFT(country.Name, 1) = LEFT(country.Continent, 1)
+    AND country.Continent != 'Oceania'  -- Excluimos Oceanía
+ORDER BY 
+    country.Name;
+---
