@@ -101,3 +101,18 @@ HAVING
 ORDER BY 
     Cantidad_Ciudades DESC;
 ---
+SELECT 
+    city.Name AS Ciudad,
+    country.Code AS Código_País,
+    country.Name AS País,
+    FORMAT(city.Population, 0) AS Población,
+    country.Continent AS Continente
+FROM 
+    country
+LEFT JOIN 
+    city ON country.Code = city.CountryCode
+WHERE 
+    country.Name = 'Spain'
+ORDER BY 
+    city.Name;
+---
