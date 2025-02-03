@@ -127,3 +127,16 @@ WHERE
 ORDER BY 
     country.Name;
 ---
+SELECT 
+    city.Name AS CIUDAD,
+    country.Name AS PAIS,
+    countrylanguage.Language AS IDIOMA
+FROM 
+    city
+LEFT JOIN 
+    country ON country.Code = city.CountryCode
+LEFT JOIN
+	countrylanguage ON countrylanguage.CountryCode = country.Code
+WHERE
+	countrylanguage.IsOfficial = 'T'
+---
