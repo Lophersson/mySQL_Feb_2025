@@ -169,3 +169,14 @@ ORDER BY
     city.Population DESC
 LIMIT 1;
 ---
+SELECT Name, Population FROM city ORDER BY Population DESC LIMIT 3;
+
+SELECT P1.Name, P1.Population FROM
+(SELECT Name, Population
+FROM city
+ORDER BY Population DESC LIMIT 3) AS P1
+
+ORDER BY 
+    P1.Population ASC
+LIMIT 1;
+---
