@@ -22,3 +22,11 @@ FROM city
 WHERE CountryCode IN ('ITA', 'IRK')
 ORDER BY Name;
 ---
+SELECT Name AS Nombre_Ciudad
+FROM city
+WHERE LEFT(Name, 3) IN (
+    SELECT LEFT(Language, 3) 
+    FROM countrylanguage
+)
+ORDER BY Name;
+---
