@@ -101,4 +101,14 @@ WHERE CountryCode IN (
 )
 ORDER BY Name;
 ---
+SELECT c.Name AS Pais, c.Population AS Poblacion_Pais
+FROM country c
+WHERE c.Population > (
+    SELECT ci.Population
+    FROM city ci
+    WHERE ci.CountryCode = c.Code
+    ORDER BY ci.Population DESC
+    LIMIT 1
+);
+---
 
