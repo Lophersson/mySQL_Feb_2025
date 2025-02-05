@@ -30,3 +30,13 @@ WHERE LEFT(Name, 3) IN (
 )
 ORDER BY Name;
 ---
+Otra forma de hacerlo:
+
+SELECT DISTINCT c.Name AS Nombre_Ciudad, 
+       cl.Language AS Idioma, 
+       LEFT(c.Name, 3) AS Tres_Primeras_Letras_Ciudad, 
+       LEFT(cl.Language, 3) AS Tres_Primeras_Letras_Idioma
+FROM city c
+JOIN countrylanguage cl ON LEFT(c.Name, 3) = LEFT(cl.Language, 3)
+ORDER BY c.Name;
+---
