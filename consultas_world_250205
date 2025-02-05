@@ -13,3 +13,12 @@ JOIN city ci ON c.Code = ci.CountryCode
 WHERE c.Name LIKE 'I%'
 ORDER BY c.Name, ci.Name;
 ---
+SELECT Code 
+FROM country 
+WHERE Code LIKE 'I%';
+---
+SELECT Name AS Nombre_Ciudad
+FROM city
+WHERE CountryCode IN ('ITA', 'IRK')
+ORDER BY Name;
+---
