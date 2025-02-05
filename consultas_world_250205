@@ -1,0 +1,15 @@
+SELECT Name AS Nombre_Ciudad
+FROM city
+WHERE CountryCode IN (
+    SELECT Code 
+    FROM country 
+    WHERE Name LIKE 'I%'
+)
+ORDER BY Name;
+---
+SELECT c.Code AS Codigo_Pais, c.Name AS Nombre_Pais, ci.Name AS Nombre_Ciudad
+FROM country c
+JOIN city ci ON c.Code = ci.CountryCode
+WHERE c.Name LIKE 'I%'
+ORDER BY c.Name, ci.Name;
+---
