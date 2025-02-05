@@ -40,3 +40,65 @@ FROM city c
 JOIN countrylanguage cl ON LEFT(c.Name, 3) = LEFT(cl.Language, 3)
 ORDER BY c.Name;
 ---
+SELECT COUNT(*) AS Total_Paises
+FROM country;
+
+SELECT Language, COUNT(*) AS Numero_Registros
+FROM countrylanguage
+GROUP BY Language
+ORDER BY Numero_Registros DESC;
+
+SELECT COUNT(*) AS Total_Idiomas
+FROM countrylanguage;
+
+SELECT COUNT(DISTINCT Language) AS Total_Idiomas
+FROM countrylanguage;
+
+SELECT COUNT(*) AS Total_Ciudades
+FROM city;
+
+SELECT DISTINCT c.Name AS Nombre_Ciudad, 
+       cl.Language AS Idioma, 
+       LEFT(c.Name, 3) AS Tres_Primeras_Letras_Ciudad, 
+       LEFT(cl.Language, 3) AS Tres_Primeras_Letras_Idioma
+FROM city c
+JOIN countrylanguage cl ON LEFT(c.Name, 3) = LEFT(cl.Language, 3)
+ORDER BY c.Name;
+
+SELECT DISTINCT c.Name AS Nombre_Ciudad, cl.Language AS Idioma_Coincidente
+FROM city c
+JOIN countrylanguage cl ON LEFT(c.Name, 3) = LEFT(cl.Language, 3)
+ORDER BY c.Name;
+
+SELECT c.Name AS Nombre_Ciudad, cl.Language AS Idioma
+FROM city c
+JOIN countrylanguage cl ON LEFT(c.Name, 3) = LEFT(cl.Language, 3)
+ORDER BY c.Name;
+
+SELECT Name AS Nombre_Ciudad
+FROM city
+WHERE LEFT(Name, 3) IN (
+    SELECT LEFT(Language, 3) 
+    FROM countrylanguage
+)
+ORDER BY Name;
+
+SELECT Name AS Nombre_Ciudad
+FROM city
+WHERE CountryCode IN ('ITA', 'IRK')
+ORDER BY Name;
+
+SELECT Code 
+FROM country 
+WHERE Code LIKE 'I%';
+
+SELECT Name AS Nombre_Ciudad
+FROM city
+WHERE CountryCode IN (
+    SELECT Code 
+    FROM country 
+    WHERE Name LIKE 'I%'
+)
+ORDER BY Name;
+---
+
