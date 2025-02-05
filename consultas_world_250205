@@ -111,4 +111,13 @@ WHERE c.Population > (
     LIMIT 1
 );
 ---
+SELECT c.Name AS Pais, c.Population AS Poblacion_Pais
+FROM country c
+WHERE c.Population > (
+    SELECT ci.Population
+    FROM city ci
+    ORDER BY ci.Population DESC
+    LIMIT 1
+);
+---
 
