@@ -1,0 +1,24 @@
+/*LISTADO DE PAÍSES CON EL NÚMERO DE CIUDADES*/
+SELECT c.country, COUNT(ci.city) AS numero_de_ciudades
+FROM country c
+JOIN city ci ON c.country_id = ci.country_id
+GROUP BY c.country
+ORDER BY numero_de_ciudades DESC;
+---
+SELECT
+	country.Name AS NOMBRE,
+    COUNT(city.Id) AS numero
+FROM
+country
+LEFT JOIN city ON city.CountryCode = country.Code
+GROUP BY country.Name
+ORDER BY numero_de_ciudades DESC;
+---
+SELECT
+    country.country AS NOMBRE,
+    COUNT(city.city_id) AS numero
+FROM country
+LEFT JOIN city ON city.country_id = country.country_id
+GROUP BY country.country
+ORDER BY numero DESC;
+---
