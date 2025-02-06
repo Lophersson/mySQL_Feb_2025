@@ -67,3 +67,14 @@ FROM (
 WHERE row_num = 1
 ORDER BY Continent;
 ---
+SELECT co.Continent, co.Name AS pais, co.Population AS poblacion
+FROM country co
+JOIN (
+    SELECT Continent, MAX(Population) AS max_population
+    FROM country
+    WHERE Continent != 'Antarctica'  -- Excluir la Antártida
+    GROUP BY Continent
+) max_pop ON co.Continent = max_pop.Continent
+           AND co.Population = max_pop.max_population
+ORDER BY co.Continent;
+---
