@@ -36,3 +36,11 @@ WHERE ci.Population > 500000
 GROUP BY co.Continent
 HAVING COUNT(*) >= 80;
 ---
+SELECT co.Name AS pais, 
+       SUM(ci.Population) AS poblacion_total,
+       COUNT(ci.ID) AS numero_de_ciudades
+FROM country co
+LEFT JOIN city ci ON ci.CountryCode = co.Code
+GROUP BY co.Name;
+---
+
