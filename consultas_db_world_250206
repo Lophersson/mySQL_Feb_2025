@@ -43,4 +43,18 @@ FROM country co
 LEFT JOIN city ci ON ci.CountryCode = co.Code
 GROUP BY co.Name;
 ---
-
+SELECT co.Name AS pais, 
+       SUM(ci.Population) AS poblacion_ciudades,
+       COUNT(ci.ID) AS numero_de_ciudades,
+       co.Population AS poblacion_total
+FROM country co
+LEFT JOIN city ci ON ci.CountryCode = co.Code
+GROUP BY co.Name, co.Population;
+---
+SELECT co.Name AS pais,
+		co.Population AS poblacion_total,
+       SUM(ci.Population) AS poblacion_ciudades
+FROM country co
+LEFT JOIN city ci ON ci.CountryCode = co.Code
+GROUP BY co.Name, co.Population;
+---
