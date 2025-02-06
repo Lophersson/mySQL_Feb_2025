@@ -15,3 +15,11 @@ JOIN city ON city.CountryCode = country.Code
 GROUP BY country.Continent
 ORDER BY numero_de_ciudades DESC;
 ---
+SELECT 
+    country.Continent AS continente, 
+    COUNT(city.ID) AS numero_de_ciudades
+FROM country
+LEFT JOIN city ON city.CountryCode = country.Code
+GROUP BY country.Continent
+ORDER BY numero_de_ciudades DESC;
+---
