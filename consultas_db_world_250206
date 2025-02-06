@@ -29,3 +29,10 @@ JOIN country co ON ci.CountryCode = co.Code
 WHERE ci.Population > 500000
 GROUP BY co.Continent;
 ---
+SELECT co.Continent, COUNT(*) AS numero_de_ciudades
+FROM city ci
+JOIN country co ON ci.CountryCode = co.Code
+WHERE ci.Population > 500000
+GROUP BY co.Continent
+HAVING COUNT(*) >= 80;
+---
