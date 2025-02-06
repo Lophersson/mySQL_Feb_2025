@@ -58,3 +58,12 @@ FROM country co
 LEFT JOIN city ci ON ci.CountryCode = co.Code
 GROUP BY co.Name, co.Population;
 ---
+SELECT Continent, Name AS pais, Population AS poblacion
+FROM (
+    SELECT co.Continent, co.Name, co.Population,
+           ROW_NUMBER() OVER (PARTITION BY co.Continent ORDER BY co.Population DESC) AS row_num
+    FROM country co
+) AS ranked
+WHERE row_num = 1
+ORDER BY Continent;
+---
