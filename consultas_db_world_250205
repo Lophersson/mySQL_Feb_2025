@@ -127,4 +127,3 @@ WHERE c.Population > ALL (
     FROM city ci
 );
 ---
----
