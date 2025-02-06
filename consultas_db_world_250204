@@ -22,3 +22,4 @@ LEFT JOIN city ON city.country_id = country.country_id
 GROUP BY country.country
 ORDER BY numero DESC;
 ---
+---
