@@ -1,0 +1,15 @@
+consulta en mysql de sakila en donde vea las peliculas con su id, titulo cuyo año de salida sea mayor o igual a 1990 ordenadas alfabeticamente por su titulo.
+
+SELECT film_id AS ID, title AS TITULO
+FROM film
+WHERE release_year>=1990
+ORDER BY title
+---
+listado de peliculas en donde actua el actor 4 ordenadas por el titulo alfabeticamente
+
+SELECT film.film_id, film.title
+FROM film_actor
+LEFT JOIN film ON film.film_id=film_actor.film_id
+WHERE film_actor.actor_id=4
+ORDER BY film.title DESC;
+---
