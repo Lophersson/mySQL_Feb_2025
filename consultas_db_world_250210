@@ -26,3 +26,9 @@ LEFT JOIN address ON address.address_id = store.address_id
 LEFT JOIN city ON city.city_id=address.city_id
 WHERE city.country_id='87';
 ---
+SELECT first_name, COUNT(*) AS cantidad
+FROM actor
+GROUP BY first_name
+HAVING COUNT(*) > 1
+ORDER BY cantidad DESC;
+---
