@@ -13,3 +13,10 @@ LEFT JOIN film ON film.film_id=film_actor.film_id
 WHERE film_actor.actor_id=4
 ORDER BY film.title DESC;
 ---
+SELECT COUNT(*) AS total_tiendas
+FROM store s
+JOIN address a ON s.address_id = a.address_id
+JOIN city c ON a.city_id = c.city_id
+JOIN country co ON c.country_id = co.country_id
+WHERE co.country = 'Spain';
+---
