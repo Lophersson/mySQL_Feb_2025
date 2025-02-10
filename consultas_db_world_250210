@@ -20,3 +20,9 @@ JOIN city c ON a.city_id = c.city_id
 JOIN country co ON c.country_id = co.country_id
 WHERE co.country = 'Spain';
 ---
+SELECT COUNT(store_id) AS numero
+FROM store
+LEFT JOIN address ON address.address_id = store.address_id
+LEFT JOIN city ON city.city_id=address.city_id
+WHERE city.country_id='87';
+---
