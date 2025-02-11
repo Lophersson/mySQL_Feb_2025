@@ -32,3 +32,29 @@ WHERE city.country_id = 87;
 SELECT film_id, title, description, release_year
 FROM film;
 ---
+SELECT
+	film.film_id,
+	film.title,
+	"film" AS Tabla
+FROM
+	film
+LEFT JOIN
+	film_text
+ON
+	film_text.film_id=film.film_id
+WHERE
+	film_text.film_id IS NULL
+    UNION
+    SELECT
+	film.film_id,
+	film.title,
+	"film" AS Tabla
+FROM
+	film
+LEFT JOIN
+	film_text
+ON
+	film_text.film_id=film.film_id
+WHERE
+	film_text.film_id IS NULL;
+---
