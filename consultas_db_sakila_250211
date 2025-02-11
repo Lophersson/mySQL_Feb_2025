@@ -6,3 +6,11 @@ FROM city
 LEFT JOIN country ON city.country_id = country.country_id
 WHERE LEFT(city.city, 1) = LEFT(country.country, 1);
 ---
+SELECT 
+    CONCAT(first_name, ' ', last_name) AS nombre_completo
+FROM customer
+JOIN address ON customer.address_id = address.address_id
+JOIN city ON address.city_id = city.city_id
+JOIN country ON city.country_id = country.country_id
+WHERE country.country_id = 87;
+---
