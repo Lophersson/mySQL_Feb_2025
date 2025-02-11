@@ -1,0 +1,8 @@
+SELECT 
+    city.city_id, 
+    city.city, 
+    country.country
+FROM city
+LEFT JOIN country ON city.country_id = country.country_id
+WHERE LEFT(city.city, 1) = LEFT(country.country, 1);
+---
