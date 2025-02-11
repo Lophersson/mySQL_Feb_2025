@@ -58,3 +58,6 @@ ON
 WHERE
 	film_text.film_id IS NULL;
 ---
+UPDATE film_text SET description="Película a borrar"
+WHERE film_id=3333
+---
