@@ -22,3 +22,10 @@ INNER JOIN city ON address.city_id = city.city_id
 INNER JOIN country ON city.country_id = country.country_id
 WHERE country.country_id = 87;
 ---
+SELECT 
+    CONCAT(customer.first_name, ' ', customer.last_name) AS Nombre
+FROM customer
+INNER JOIN address ON address.address_id=customer.address_id
+INNER JOIN city ON city.city_id=address.city_id
+WHERE city.country_id = 87;
+---
