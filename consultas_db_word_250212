@@ -14,3 +14,8 @@ FROM country
 WHERE (Name = LocalName)
 OR (LEFT(Continent, 1)="e");
 ---
+SELECT CountryCode, country.name, country.Continent, city.Name 
+FROM country LEFT JOIN city ON city.CountryCode=country.code
+WHERE (country.Population<1000000)
+AND (country.Capital=city.ID)
+---
