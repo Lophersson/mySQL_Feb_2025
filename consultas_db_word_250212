@@ -1,0 +1,11 @@
+SELECT Code, Name, Continent
+FROM country
+WHERE (Name=LocalName)
+AND (LEFT(Continent,1)=LEFT(Name,1))
+---
+SELECT Code, Name, Continent, LocalName, GovernmentForm
+FROM country
+WHERE (Name = LocalName)
+AND (LEFT(Continent, 1) = LEFT(Name, 1))
+AND (LEFT(GovernmentForm, 1) = LEFT(Name, 1));
+---
