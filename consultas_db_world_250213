@@ -1,0 +1,26 @@
+SELECT 
+    Code, 
+    Name, 
+    Language, Percentage
+FROM 
+    country
+LEFT JOIN 
+    countrylanguage ON Code = CountryCode
+WHERE 
+    countrylanguage.Percentage > 40;
+---
+  SELECT 
+    c.Code, 
+    c.Name, 
+    cl.Language
+FROM 
+    country c
+INNER JOIN 
+    countrylanguage cl ON c.Code = cl.CountryCode
+WHERE 
+    cl.Percentage = (
+        SELECT MAX(cl2.Percentage)
+        FROM countrylanguage cl2
+        WHERE cl2.CountryCode = c.Code
+    );
+---
