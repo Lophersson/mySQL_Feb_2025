@@ -34,3 +34,21 @@ WHERE
     Population BETWEEN 700000 AND 1000000 
     AND (Name LIKE '%x%' OR Name LIKE '%v%');
 ---
+SELECT 
+    Name AS Nombre, 
+    population AS Población
+FROM 
+    city 
+WHERE 
+    (
+		(population<1000000)
+        AND
+        (population>700000)
+	)
+AND
+(
+	(Name LIKE '%x%')
+    OR
+    (Name LIKE '%v%')
+);
+---
