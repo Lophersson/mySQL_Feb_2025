@@ -24,3 +24,13 @@ WHERE
         WHERE cl2.CountryCode = c.Code
     );
 ---
+SELECT 
+    Name, 
+    Population, 
+    CountryCode 
+FROM 
+    city 
+WHERE 
+    Population BETWEEN 700000 AND 1000000 
+    AND (Name LIKE '%x%' OR Name LIKE '%v%');
+---
