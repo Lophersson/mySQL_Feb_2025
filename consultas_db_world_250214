@@ -1,0 +1,27 @@
+QUERY_01
+SELECT Code, Name, Population 
+FROM country 
+WHERE ((Name LIKE '%x%') OR (Name LIKE 'A%'))
+AND ((Population>4000000) OR (Population<1000000));
+---
+QUERY_02
+
+---
+QUERY_03
+
+---
+QUERY_04
+
+---
+QUERY_05
+
+---
+QUERY_06
+
+---
+QUERY_07
+
+---
+QUERY_08
+
+---
