@@ -16,12 +16,10 @@ SELECT
     city.ID AS Codigo_Ciudad,
     city.Name AS Nombre_Ciudad,
     country.Name AS Nombre_Pais,
-    country.Continent AS Continente,
-    city.Population AS Poblacion_Ciudad,
-    country.Population AS Poblacion_Pais
+    country.Continent AS Continente
 FROM city
-JOIN country ON city.CountryCode = country.Code
-WHERE city.Population > (country.Population / 2);
+LEFT JOIN country ON city.CountryCode = country.Code
+WHERE (city.Population > (country.Population / 2));
 ---
 QUERY_04
 
