@@ -5,10 +5,23 @@ WHERE ((Name LIKE '%x%') OR (Name LIKE 'A%'))
 AND ((Population>4000000) OR (Population<1000000));
 ---
 QUERY_02
-
+SELECT c.Code, c.Name AS Country, COUNT(ct.ID) AS NumberOfCities
+FROM country c
+LEFT JOIN city ct ON c.Code = ct.CountryCode
+WHERE CHAR_LENGTH(c.Name)>15
+GROUP BY c.Code, c.Name;
 ---
 QUERY_03
-
+SELECT 
+    city.ID AS Codigo_Ciudad,
+    city.Name AS Nombre_Ciudad,
+    country.Name AS Nombre_Pais,
+    country.Continent AS Continente,
+    city.Population AS Poblacion_Ciudad,
+    country.Population AS Poblacion_Pais
+FROM city
+JOIN country ON city.CountryCode = country.Code
+WHERE city.Population > (country.Population / 2);
 ---
 QUERY_04
 
