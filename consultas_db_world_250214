@@ -22,10 +22,24 @@ LEFT JOIN country ON city.CountryCode = country.Code
 WHERE (city.Population > (country.Population / 2));
 ---
 QUERY_04
-
+SELECT 
+    city.Name AS Nombre_Ciudad,
+    city.Population AS Poblacion,
+    country.Name AS Nombre_Pais
+FROM city
+LEFT JOIN country ON city.CountryCode = country.Code
+LEFT JOIN countrylanguage ON country.Code = countrylanguage.CountryCode
+WHERE countrylanguage.Percentage > 80;
 ---
 QUERY_05
-
+SELECT DISTINCT 
+    country.Name AS Nombre_Pais, 
+    country.Population,
+    countrylanguage.Language AS Idioma, 
+    countrylanguage.Percentage AS Porcentaje_Hablantes
+FROM country
+LEFT JOIN countrylanguage ON country.Code = countrylanguage.CountryCode
+WHERE countrylanguage.Percentage > 80;
 ---
 QUERY_06
 
