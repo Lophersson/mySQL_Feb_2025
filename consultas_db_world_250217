@@ -50,4 +50,7 @@ WHERE c.Continent = 'Asia'
 ORDER BY c.Name;
 ---
 https://codepen.io/Szereloknek/pen/zYPKQzd
+https://codepen.io/poros04/details/ZrWjgo
+https://codepen.io/tarasboss/pen/YWgoZN
+
 ---
