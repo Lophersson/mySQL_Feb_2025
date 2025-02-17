@@ -1,0 +1,30 @@
+QUERY_01
+SELECT city.ID, city.Name
+FROM city
+LEFT JOIN country ON country.CODE = city.CountryCode
+WHERE (city.Population > (country.Population / 2))
+AND (LEFT(city.Name, 1) = RIGHT(CITY.Name, 1));
+---
+QUERY_02
+SELECT c.Name AS Pais, COUNT(cl.Language) AS Total_Idiomas
+FROM Country c
+JOIN CountryLanguage cl ON c.Code = cl.CountryCode
+GROUP BY c.Name
+ORDER BY Total_Idiomas DESC;
+---
+QUERY_03
+SELECT c.Name AS Pais, SUM(cl.Percentage) AS Suma_Porcentaje_Idiomas
+FROM Country c
+JOIN CountryLanguage cl ON c.Code = cl.CountryCode
+GROUP BY c.Name
+ORDER BY Suma_Porcentaje_Idiomas DESC;
+---
+QUERY_04
+SELECT c.Name AS Pais, SUM(cl.Percentage) AS Suma_Porcentaje_Idiomas
+FROM Country c
+JOIN CountryLanguage cl ON c.Code = cl.CountryCode
+GROUP BY c.Name
+HAVING Suma_Porcentaje_Idiomas <> 100
+ORDER BY Suma_Porcentaje_Idiomas DESC;
+---
+QUERY_05
