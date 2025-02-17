@@ -74,3 +74,8 @@ SELECT code, name, region, IndepYear
 FROM country
 ORDER BY IndepYear DESC;
 ---
+QUERY_11
+SELECT code, name, region
+FROM country
+WHERE (YEAR(CURDATE()) - IndepYear) < 20;
+---
