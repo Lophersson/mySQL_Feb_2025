@@ -28,3 +28,17 @@ HAVING Suma_Porcentaje_Idiomas <> 100
 ORDER BY Suma_Porcentaje_Idiomas DESC;
 ---
 QUERY_05
+SELECT c.Name AS Pais, SUM(cl.Percentage) AS Suma_Porcentaje_Idiomas
+FROM Country c
+JOIN CountryLanguage cl ON c.Code = cl.CountryCode
+WHERE c.Name LIKE 'A%'  
+GROUP BY c.Name
+HAVING Suma_Porcentaje_Idiomas <> 100
+ORDER BY Suma_Porcentaje_Idiomas DESC;
+---
+QUERY_06
+SELECT Continent AS Nombre_Continente, COUNT(Code) AS Numero_Paises
+FROM Country
+GROUP BY Continent
+ORDER BY Numero_Paises DESC;
+---
