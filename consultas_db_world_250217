@@ -49,3 +49,5 @@ LEFT JOIN City ci ON c.Capital = ci.ID
 WHERE c.Continent = 'Asia'
 ORDER BY c.Name;
 ---
+https://codepen.io/Szereloknek/pen/zYPKQzd
+---
