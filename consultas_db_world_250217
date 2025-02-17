@@ -79,3 +79,19 @@ SELECT code, name, region
 FROM country
 WHERE (YEAR(CURDATE()) - IndepYear) < 20;
 ---
+QUERY_12
+SELECT *
+FROM country
+WHERE (LEFT(Name,1)=LEFT(Continent,1))
+AND
+(LEFT(Name,1)=(LEFT(LocalName,1))
+AND
+(LEFT(Name,1)=(LEFT(GovermentForm,1));
+---
+QUERY_13
+SELECT *
+FROM country
+WHERE LEFT(Name, 1) = LEFT(Continent, 1)
+  AND LEFT(Name, 1) = LEFT(LocalName, 1)
+  AND LEFT(Name, 1) = LEFT(GovernmentForm, 1);
+---
