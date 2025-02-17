@@ -53,3 +53,24 @@ https://codepen.io/Szereloknek/pen/zYPKQzd
 https://codepen.io/poros04/details/ZrWjgo
 https://codepen.io/tarasboss/pen/YWgoZN
 ---
+QUERY_08
+SELECT
+	ci.ID AS Codigo_Ciudad,
+    ci.Name AS Ciudad,
+    ci.Population AS Poblacion,
+    co.Name AS Pais
+FROM City ci
+LEFT JOIN Country co ON ci.CountryCode = co.Code
+WHERE ci.Population > 100000
+ORDER BY ci.Name DESC;
+---
+QUERY_09
+SELECT code, name, region
+FROM country
+WHERE YEAR(CURDATE()) - IndepYear < 20;
+---
+QUERY_10
+SELECT code, name, region, IndepYear
+FROM country
+ORDER BY IndepYear DESC;
+---
