@@ -42,3 +42,10 @@ FROM Country
 GROUP BY Continent
 ORDER BY Numero_Paises DESC;
 ---
+QUERY_07
+SELECT c.Code AS Codigo, c.Name AS Nombre, ci.Name AS Capital
+FROM Country c
+LEFT JOIN City ci ON c.Capital = ci.ID
+WHERE c.Continent = 'Asia'
+ORDER BY c.Name;
+---
