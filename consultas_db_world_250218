@@ -21,4 +21,18 @@ WHERE
 OR
 (Population>100000);
 ---
-QUERY_03
+QUERY_03a
+SELECT c.Continent, SUM(c.Population) AS Poblacion_Total
+FROM country c
+WHERE c.Population > 10000000
+GROUP BY c.Continent
+HAVING SUM(c.Population) > 500000000;
+---
+QUERY_03b
+SELECT c.Continent, SUM(c.Population) AS Poblacion_Total
+FROM country c
+WHERE c.Population > 10000000
+GROUP BY c.Continent
+HAVING SUM(c.Population) >= 500000000;
+---
+
