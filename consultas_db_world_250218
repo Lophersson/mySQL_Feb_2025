@@ -35,4 +35,26 @@ WHERE c.Population > 10000000
 GROUP BY c.Continent
 HAVING SUM(c.Population) >= 500000000;
 ---
-
+QUERY_04
+SELECT DISTINCT Language 
+FROM countrylanguage;
+---
+QUERY_05a
+SELECT c.Continent, COUNT(DISTINCT cl.Language) AS Total_Idiomas
+FROM countrylanguage cl
+JOIN country c ON cl.CountryCode = c.Code
+GROUP BY c.Continent;
+---
+QUERY_05b
+SELECT Tabla.Continente, COUNT(Tabla.Idioma)
+FROM
+	(
+    
+SELECT distinct
+	country.Continent AS Continente, cl.Language AS Idioma
+FROM
+	country
+	LEFT JOIN countrylanguage cl ON cl.CountryCode = country.Code
+    ) AS Tabla
+GROUP BY Tabla.Continente;
+---
