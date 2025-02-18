@@ -1,0 +1,24 @@
+QUERY_01
+SELECT
+c.Code AS Codigo_Pais,
+c.Name AS Nombre_Pais
+FROM country c
+WHERE
+(c.Population > 1000000 AND SUBSTRING(c.Name, 3, 1) = 'A')
+OR
+(c.Population > 2000000 AND SUBSTRING(c.Name, 3, 1) = 'S');
+---
+QUERY_02a
+SELECT Name AS Ciudad, Population
+FROM city
+WHERE Name LIKE 'A%' AND Population > 100000;
+---
+QUERY_02b
+SELECT Name AS Ciudad, Population
+FROM city
+WHERE
+(LEFT(Name,1)='A')
+OR
+(Population>100000);
+---
+QUERY_03
