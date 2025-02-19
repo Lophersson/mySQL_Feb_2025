@@ -14,6 +14,17 @@ GROUP BY f.film_id, f.title
 #ORDER BY numero_actores DESC;
 ---
 QUERY_03
+SELECT 
+    CONCAT(actor.first_name, ' ', actor.last_name) AS nombre_completo,
+    'Actor' AS tipo
+FROM actor
+
+UNION ALL
+
+SELECT 
+    CONCAT(staff.first_name, ' ', staff.last_name) AS nombre_completo,
+    'Staff' AS tipo
+FROM staff
 ---
 QUERY_04
 ---
