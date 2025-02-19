@@ -1,0 +1,19 @@
+QUERY_01
+SELECT film_id, release_year
+FROM film
+WHERE (release_year >= 1990) AND (release_year <=1999)
+---
+QUERY_02
+---
+QUERY_03
+---
+QUERY_04
+---
+QUERY_05
+---
+QUERY_06
+---
+QUERY_07
+---
+QUERY_08
+---
