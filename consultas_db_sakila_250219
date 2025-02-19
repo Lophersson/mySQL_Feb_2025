@@ -4,6 +4,14 @@ FROM film
 WHERE (release_year >= 1990) AND (release_year <=1999)
 ---
 QUERY_02
+SELECT 
+    f.film_id AS codigo_pelicula,
+    f.title AS titulo,
+    COUNT(fa.actor_id) AS numero_actores
+FROM film f
+LEFT JOIN film_actor fa ON f.film_id = fa.film_id
+GROUP BY f.film_id, f.title
+#ORDER BY numero_actores DESC;
 ---
 QUERY_03
 ---
